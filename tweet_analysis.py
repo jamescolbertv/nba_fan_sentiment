@@ -1,17 +1,9 @@
 # Import libraries
 from auth import api
-from functions import clean_text, get_subjectivity, get_polarity
+from functions import clean_text, get_polarity
 from nba_teams import teams
-import os
-import json
-from requests_oauthlib import OAuth1Session
-import requests
 import tweepy
-from wordcloud import WordCloud
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-plt.style.use('fivethirtyeight')
 
 # Twitter API creds
 consumer_key = api['CONSUMER_KEY']
