@@ -24,7 +24,7 @@ authenticate.set_access_token (access_token, access_token_secret)
 # Create the API object while passing in auth information
 api = tweepy.API(authenticate, wait_on_rate_limit=True)
 
-# Create a dictionaries and lists to store data
+# Create dictionaries and lists to store data
 # These 3 lists will be used to create a dataframe containing all tweets, their general sentiment, and what team the tweet
 # is associated with. This df will be used to pull the highest sentiment tweet for each team.
 tweets = []
