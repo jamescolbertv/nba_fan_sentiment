@@ -3,6 +3,7 @@ from auth import api
 from functions import clean_text, get_polarity
 from nba_teams import teams
 import tweepy
+from wordcloud import WordCloud
 import pandas as pd
 
 # Twitter API creds
@@ -75,13 +76,11 @@ for index, row in tweet_polarity_df.iterrows():
     polarity = row['TweetPolarity']
     team = row['TweetTeam']
     tweet = row['Tweet']
-    if polarity > team_highlighted_tweets[team]:
+    if team_highlighted_tweets[team] == 0:
+        tweet_highlights[team] = tweet
+    elif polarity > team_highlighted_tweets[team]:
         tweet_highlights[team] = tweet
 
-print(tweet_highlights)
-
-print(team_fan_sentiment)
-
-# TODO - VISUALIZE the data! Bar chart showing all teams and the sentiment rating that they have for their team would be 
-# ideal. Also, start designing single app web page to display this visualization.
-        
+team_sentiment_df = pd.DataFrame.from_dict(team_fan_sentiment, orient='index')
+team_sentiment_df.columns = ['Fan Happiness Rating']
+team_sentiment_df.index.name = 'Team'
