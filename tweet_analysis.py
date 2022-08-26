@@ -3,7 +3,6 @@ from auth import api
 from functions import clean_text, get_polarity
 from nba_teams import teams
 import tweepy
-from wordcloud import WordCloud
 import pandas as pd
 
 # Twitter API creds
